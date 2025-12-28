@@ -2,12 +2,12 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Quadro dos Sonhos",
-    short_name: "Sonhos",
+    name: "Vision Board",
+    short_name: "Vision Board",
     start_url: "/",
     display: "standalone",
-    background_color: "#6a11cb",
-    theme_color: "#6a11cb",
+    background_color: "#fefdfb",
+    theme_color: "#d4af37",
     icons: [
       {
         src: "/icon-192.png",
