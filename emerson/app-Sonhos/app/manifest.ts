@@ -2,8 +2,8 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Vision Board",
-    short_name: "Vision Board",
+    name: "Dream Map - Transforme sonhos em metas",
+    short_name: "Dream Map",
     start_url: "/",
     display: "standalone",
     background_color: "#fefdfb",

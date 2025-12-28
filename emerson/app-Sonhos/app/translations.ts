@@ -1,7 +1,8 @@
 export const translations = {
   pt: {
     // Cabeçalho
-    title: "⭐ Vision Board",
+    title: "⭐ Dream Map",
+    slogan: "Transforme sonhos em metas",
     
     // Seção Sobre Você
     aboutYou: "Sobre você",
@@ -149,7 +150,8 @@ export const translations = {
   
   en: {
     // Header
-    title: "⭐ Vision Board",
+    title: "⭐ Dream Map",
+    slogan: "Turn dreams into goals",
     
     // About You Section
     aboutYou: "About you",
@@ -297,7 +299,8 @@ export const translations = {
   
   es: {
     // Encabezado
-    title: "⭐ Vision Board",
+    title: "⭐ Dream Map",
+    slogan: "Transforma sueños en metas",
     
     // Sección Sobre Ti
     aboutYou: "Sobre ti",

@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vision Board - Realize Seus Sonhos",
-  description: "Crie seu quadro de visualização com fotos dos seus sonhos e objetivos",
+  title: "Dream Map - Transforme sonhos em metas",
+  description: "Crie seu mapa de visualização com fotos dos seus sonhos e objetivos. Transforme sonhos em metas.",
 };
 
 export default function RootLayout({

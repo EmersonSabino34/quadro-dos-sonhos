@@ -1,6 +1,33 @@
 /* ========================================
-   RESPONSIVIDADE PARA MURAIS
+   RESPONSIVIDADE PARA MURAIS - ENQUADRAMENTO PERFEITO
    ======================================== */
+
+/* Estilos base para garantir enquadramento perfeito */
+div[id^="mural-"] {
+  width: 100%;
+  overflow: hidden;
+}
+
+div[id^="mural-"] > div {
+  overflow: hidden;
+  position: relative;
+  background: #f0f0f0;
+}
+
+div[id^="mural-"] img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  max-width: none !important;
+}
+
+div[id^="mural-"] svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+}
 
 /* Tablets e dispositivos médios (1024px e abaixo) */
 @media (max-width: 1024px) {

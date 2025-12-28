@@ -190,8 +190,8 @@ export default function Home() {
     if (muralSelecionado === null) return;
     
     const textoCompartilhar = dataComemorativa 
-      ? `${t[dataComemorativa as keyof typeof t]} - Meu Vision Board dos Sonhos! 🌟`
-      : "Meu Vision Board dos Sonhos! 🌟";
+      ? `${t[dataComemorativa as keyof typeof t]} - Meu Dream Map dos Sonhos! 🌟`
+      : "Meu Dream Map dos Sonhos! 🌟";
     
     const url = window.location.href;
     
@@ -267,6 +267,17 @@ export default function Home() {
         </div>
 
         <h1 style={{ color: "#2c2c2c", textShadow: "2px 2px 4px rgba(212, 175, 55, 0.3)" }}>{t.title}</h1>
+        <p style={{ 
+          textAlign: "center", 
+          fontSize: "1.1rem", 
+          color: "#2c2c2c", 
+          marginTop: "-1rem", 
+          marginBottom: "2rem",
+          fontStyle: "italic",
+          opacity: 0.9
+        }}>
+          {t.slogan}
+        </p>
 
         {/* Opção para incluir frases motivacionais */}
         <div style={{ marginBottom: "1.5rem", padding: "1rem", background: "rgba(212, 175, 55, 0.1)", borderRadius: "12px", border: "2px solid rgba(212, 175, 55, 0.3)" }}>
@@ -438,7 +449,7 @@ export default function Home() {
                 onClick={() => setDestaque(img)}
               >
                 {img.src.startsWith('data:image/svg') ? (
-                  <div dangerouslySetInnerHTML={{ __html: decodeURIComponent(img.src.split(',')[1]) }} style={{ width: "100%", height: "100%" }} />
+                  <div dangerouslySetInnerHTML={{ __html: decodeURIComponent(img.src.split(',')[1]) }} style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }} />
                 ) : (
                   <img 
                     src={img.src} 
@@ -447,6 +458,7 @@ export default function Home() {
                       width: "100%", 
                       height: "100%", 
                       objectFit: "cover",
+                      objectPosition: "center",
                       display: "block"
                     }}
                   />
@@ -521,7 +533,7 @@ export default function Home() {
                   onClick={() => setDestaque(img)}
                 >
                   {img.src.startsWith('data:image/svg') ? (
-                    <div dangerouslySetInnerHTML={{ __html: decodeURIComponent(img.src.split(',')[1]) }} style={{ width: "100%", height: "100%" }} />
+                    <div dangerouslySetInnerHTML={{ __html: decodeURIComponent(img.src.split(',')[1]) }} style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }} />
                   ) : (
                     <img 
                       src={img.src} 
@@ -530,6 +542,7 @@ export default function Home() {
                         width: "100%", 
                         height: "100%", 
                         objectFit: "cover",
+                        objectPosition: "center",
                         display: "block"
                       }}
                     />
@@ -586,7 +599,7 @@ export default function Home() {
                 onClick={() => setDestaque(img)}
               >
                 {img.src.startsWith('data:image/svg') ? (
-                  <div dangerouslySetInnerHTML={{ __html: decodeURIComponent(img.src.split(',')[1]) }} style={{ width: "100%", height: "100%" }} />
+                  <div dangerouslySetInnerHTML={{ __html: decodeURIComponent(img.src.split(',')[1]) }} style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }} />
                 ) : (
                   <img 
                     src={img.src} 
@@ -595,6 +608,7 @@ export default function Home() {
                       width: "100%", 
                       height: "100%", 
                       objectFit: "cover",
+                      objectPosition: "center",
                       display: "block"
                     }}
                   />
@@ -669,7 +683,7 @@ export default function Home() {
                   onClick={() => setDestaque(img)}
                 >
                   {img.src.startsWith('data:image/svg') ? (
-                    <div dangerouslySetInnerHTML={{ __html: decodeURIComponent(img.src.split(',')[1]) }} style={{ width: "100%", height: "100%" }} />
+                    <div dangerouslySetInnerHTML={{ __html: decodeURIComponent(img.src.split(',')[1]) }} style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }} />
                   ) : (
                     <img 
                       src={img.src} 
@@ -678,6 +692,7 @@ export default function Home() {
                         width: "100%", 
                         height: "100%", 
                         objectFit: "cover",
+                        objectPosition: "center",
                         display: "block"
                       }}
                     />
@@ -734,7 +749,7 @@ export default function Home() {
                 onClick={() => setDestaque(img)}
               >
                 {img.src.startsWith('data:image/svg') ? (
-                  <div dangerouslySetInnerHTML={{ __html: decodeURIComponent(img.src.split(',')[1]) }} style={{ width: "100%", height: "100%" }} />
+                  <div dangerouslySetInnerHTML={{ __html: decodeURIComponent(img.src.split(',')[1]) }} style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }} />
                 ) : (
                   <img 
                     src={img.src} 
@@ -743,6 +758,7 @@ export default function Home() {
                       width: "100%", 
                       height: "100%", 
                       objectFit: "cover",
+                      objectPosition: "center",
                       display: "block"
                     }}
                   />

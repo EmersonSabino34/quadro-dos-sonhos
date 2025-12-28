@@ -188,13 +188,14 @@ select, input {
   width: 100%;
   padding: 0.9rem 1.2rem;
   margin: 0.6rem 0;
-  border: 2px solid var(--border-color);
+  border: 2px solid #d0d0d0;
   border-radius: 12px;
   background: #ffffff;
   color: #2c2c2c;
   font-size: 1rem;
   transition: all 0.3s ease;
   outline: none;
+  font-weight: 500;
 }
 
 /* RESPONSIVIDADE - MOBILE */
@@ -213,9 +214,9 @@ select, input {
 }
 
 select:focus, input:focus {
-  border-color: var(--primary);
-  background: #fffef9;
-  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
+  border-color: #6c757d;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.1);
 }
 
 select option {
@@ -459,7 +460,7 @@ input::placeholder {
   backdrop-filter: blur(10px);
   border-radius: 24px;
   padding: 3rem;
-  box-shadow: 0 8px 32px rgba(26, 35, 50, 0.1);
+  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.2);
   border: 2px solid var(--border-color);
   animation: fadeIn 0.8s ease-in;
 }
@@ -472,11 +473,14 @@ input::placeholder {
 .auth-header h1 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
+  color: #2c2c2c;
+  font-weight: 700;
 }
 
 .auth-header p {
-  color: rgba(44, 62, 80, 0.7);
+  color: #495057;
   font-size: 0.95rem;
+  font-weight: 500;
 }
 
 .pricing-badge {
@@ -528,14 +532,15 @@ input::placeholder {
 }
 
 .form-links a {
-  color: var(--primary);
+  color: #495057;
   text-decoration: none;
   font-size: 0.9rem;
   transition: color 0.3s ease;
+  font-weight: 500;
 }
 
 .form-links a:hover {
-  color: var(--foreground);
+  color: #2c2c2c;
   text-decoration: underline;
 }
 
@@ -572,8 +577,9 @@ input::placeholder {
 }
 
 .auth-footer p {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
   font-size: 0.95rem;
+  opacity: 0.9;
 }
 
 .link-highlight {
@@ -734,19 +740,20 @@ select, input {
   width: 100%;
   padding: 0.9rem 1.2rem;
   margin: 0.6rem 0;
-  border: 2px solid var(--border-color);
+  border: 2px solid #d0d0d0;
   border-radius: 12px;
   background: #ffffff;
-  color: var(--foreground);
+  color: #2c2c2c;
   font-size: 1rem;
   transition: all 0.3s ease;
   outline: none;
+  font-weight: 500;
 }
 
 select:focus, input:focus {
-  border-color: var(--primary);
-  background: #fffef8;
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+  border-color: #6c757d;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.1);
 }
 
 select option {
@@ -915,8 +922,9 @@ input::placeholder {
 }
 
 .auth-header p {
-  color: rgba(44, 44, 44, 0.7);
+  color: var(--text-secondary);
   font-size: 0.95rem;
+  opacity: 0.9;
 }
 
 .pricing-badge {
@@ -1011,8 +1019,9 @@ input::placeholder {
 }
 
 .auth-footer p {
-  color: rgba(44, 44, 44, 0.7);
+  color: var(--text-secondary);
   font-size: 0.95rem;
+  opacity: 0.9;
 }
 
 .link-highlight {
@@ -1170,19 +1179,20 @@ select, input {
   width: 100%;
   padding: 0.9rem 1.2rem;
   margin: 0.6rem 0;
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid #d0d0d0;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
+  background: #ffffff;
+  color: #2c2c2c;
   font-size: 1rem;
   transition: all 0.3s ease;
   outline: none;
+  font-weight: 500;
 }
 
 select:focus, input:focus {
-  border-color: var(--primary);
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.2);
+  border-color: #6c757d;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.1);
 }
 
 select option {
@@ -1333,8 +1343,8 @@ input::placeholder {
   backdrop-filter: blur(10px);
   border-radius: 24px;
   padding: 3rem;
-  box-shadow: 0 8px 32px rgba(106, 17, 203, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.2);
+  border: 2px solid var(--border-color);
   animation: fadeIn 0.8s ease-in;
 }
 
@@ -1349,8 +1359,9 @@ input::placeholder {
 }
 
 .auth-header p {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
   font-size: 0.95rem;
+  opacity: 0.9;
 }
 
 .pricing-badge {
@@ -1442,8 +1453,9 @@ input::placeholder {
 }
 
 .auth-footer p {
-  color: rgba(44, 62, 80, 0.65);
+  color: var(--text-secondary);
   font-size: 0.95rem;
+  opacity: 0.9;
 }
 
 .link-highlight {

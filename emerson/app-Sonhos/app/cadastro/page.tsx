@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import "../auth.css"; // Mantenha seu CSS externo se tiver, ou use inline como abaixo
 
 export default function Cadastro() {
   const [lang, setLang] = useState<"pt" | "en" | "es">("pt");
@@ -27,7 +28,7 @@ export default function Cadastro() {
       benefit1: "20 imagens inspiradoras",
       benefit2: "Upload ilimitado de fotos pessoais",
       benefit3: "Frases motivacionais e bíblicas diárias",
-      benefit4: "Quadro personalizado dos seus sonhos",
+      benefit4: "Mapa personalizado dos seus sonhos",
       benefit5: "Acesso em todos os dispositivos",
       subscribe: "Assinar por €4,99/mês",
       haveAccount: "Já tem uma conta?",
@@ -49,7 +50,7 @@ export default function Cadastro() {
       benefit1: "20 inspiring images",
       benefit2: "Unlimited personal photo uploads",
       benefit3: "Daily motivational and biblical quotes",
-      benefit4: "Personalized vision board",
+      benefit4: "Personalized dream map",
       benefit5: "Access on all devices",
       subscribe: "Subscribe for €4.99/month",
       haveAccount: "Already have an account?",
@@ -82,145 +83,131 @@ export default function Cadastro() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (senha !== confirmarSenha) {
-      alert("As senhas não coincidem!");
+      alert(lang === "pt" ? "As senhas não coincidem!" : lang === "en" ? "Passwords do not match!" : "Las contraseñas no coinciden!");
       return;
     }
-    // Lógica de cadastro aqui
     console.log("Cadastro:", { nome, email, senha });
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-card">
-        {/* Seletor de Idioma */}
-        <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "1rem", gap: "0.5rem" }}>
-          <button 
-            onClick={() => setLang("pt")}
-            style={{
-              padding: "0.4rem 0.8rem",
-              background: lang === "pt" ? "linear-gradient(135deg, #d4af37, #c9a961)" : "rgba(212, 175, 55, 0.1)",
-              border: lang === "pt" ? "2px solid #d4af37" : "2px solid rgba(212, 175, 55, 0.3)",
-              borderRadius: "8px",
-              color: lang === "pt" ? "white" : "#2c2c2c",
-              cursor: "pointer",
-              fontSize: "0.8rem",
-              fontWeight: "600"
-            }}
-          >
-            🇧🇷 PT
-          </button>
-          <button 
-            onClick={() => setLang("en")}
-            style={{
-              padding: "0.4rem 0.8rem",
-              background: lang === "en" ? "linear-gradient(135deg, #d4af37, #c9a961)" : "rgba(212, 175, 55, 0.1)",
-              border: lang === "en" ? "2px solid #d4af37" : "2px solid rgba(212, 175, 55, 0.3)",
-              borderRadius: "8px",
-              color: lang === "en" ? "white" : "#2c2c2c",
-              cursor: "pointer",
-              fontSize: "0.8rem",
-              fontWeight: "600"
-            }}
-          >
-            🇺🇸 EN
-          </button>
-          <button 
-            onClick={() => setLang("es")}
-            style={{
-              padding: "0.4rem 0.8rem",
-              background: lang === "es" ? "linear-gradient(135deg, #d4af37, #c9a961)" : "rgba(212, 175, 55, 0.1)",
-              border: lang === "es" ? "2px solid #d4af37" : "2px solid rgba(212, 175, 55, 0.3)",
-              borderRadius: "8px",
-              color: lang === "es" ? "white" : "#2c2c2c",
-              cursor: "pointer",
-              fontSize: "0.8rem",
-              fontWeight: "600"
-            }}
-          >
-            🇪🇸 ES
-          </button>
+    <div className="auth-container" style={{ background: "linear-gradient(135deg, #f3e8ff 0%, #e0e7ff 100%)", minHeight: "100vh" }}>
+      <div className="auth-card" style={{
+        background: "white",
+        borderRadius: "24px",
+        boxShadow: "0 20px 40px rgba(167, 139, 250, 0.15)",
+        maxWidth: "480px",
+        padding: "2.5rem"
+      }}>
+        {/* Seletor de Idioma - agora com cores mais suaves */}
+        <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "1.5rem", gap: "0.75rem" }}>
+          {["pt", "en", "es"].map((l) => (
+            <button
+              key={l}
+              onClick={() => setLang(l as any)}
+              style={{
+                padding: "0.5rem 1rem",
+                background: lang === l ? "linear-gradient(135deg, #a78bfa, #c084fc)" : "rgba(167, 139, 250, 0.1)",
+                border: `2px solid ${lang === l ? "#a78bfa" : "rgba(167, 139, 250, 0.3)"}`,
+                borderRadius: "12px",
+                color: lang === l ? "white" : "#374151",
+                cursor: "pointer",
+                fontSize: "0.875rem",
+                fontWeight: "600",
+                transition: "all 0.3s"
+              }}
+            >
+              {l === "pt" ? "🇧🇷 PT" : l === "en" ? "🇺🇸 EN" : "🇪🇸 ES"}
+            </button>
+          ))}
         </div>
 
-        <div className="auth-header">
-          <h1>{t.title}</h1>
-          <p>{t.subtitle}</p>
+        <div className="auth-header" style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+          <h1 style={{ fontSize: "2.5rem", fontWeight: "bold", background: "linear-gradient(135deg, #a78bfa, #93c5fd)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+            {t.title}
+          </h1>
+          <p style={{ color: "#6b7280", fontSize: "1.125rem" }}>{t.subtitle}</p>
         </div>
 
-        <div className="pricing-badge">
+        <div className="pricing-badge" style={{
+          background: "linear-gradient(135deg, #a78bfa, #c084fc)",
+          color: "white",
+          padding: "1rem",
+          borderRadius: "16px",
+          textAlign: "center",
+          marginBottom: "2rem",
+          fontWeight: "bold",
+          fontSize: "1.5rem",
+          boxShadow: "0 10px 20px rgba(167, 139, 250, 0.3)"
+        }}>
           <span className="price">€4,99</span>
-          <span className="period">{t.month}</span>
+          <span className="period" style={{ fontSize: "1rem", opacity: 0.9 }}> {t.month}</span>
         </div>
 
-        <form onSubmit={handleSubmit} className="auth-form">
-          <div className="form-group">
-            <label htmlFor="nome">{t.fullName}</label>
-            <input
-              id="nome"
-              type="text"
-              placeholder={t.fullNamePlaceholder}
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}
-              required
-            />
-          </div>
+        <form onSubmit={handleSubmit} className="auth-form" style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+          {/* Campos de input com bordas suaves */}
+          {[
+            { label: t.fullName, placeholder: t.fullNamePlaceholder, value: nome, onChange: setNome, type: "text" },
+            { label: t.email, placeholder: t.emailPlaceholder, value: email, onChange: setEmail, type: "email" },
+            { label: t.password, placeholder: t.passwordPlaceholder, value: senha, onChange: setSenha, type: "password" },
+            { label: t.confirmPassword, placeholder: t.confirmPasswordPlaceholder, value: confirmarSenha, onChange: setConfirmarSenha, type: "password" },
+          ].map((field, i) => (
+            <div key={i} style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+              <label style={{ fontWeight: "600", color: "#374151" }}>{field.label}</label>
+              <input
+                type={field.type}
+                placeholder={field.placeholder}
+                value={field.value}
+                onChange={(e) => field.onChange(e.target.value)}
+                required
+                style={{
+                  padding: "0.875rem 1rem",
+                  borderRadius: "12px",
+                  border: "2px solid #e5e7eb",
+                  fontSize: "1rem",
+                  transition: "border 0.3s",
+                }}
+                onFocus={(e) => e.target.style.borderColor = "#a78bfa"}
+                onBlur={(e) => e.target.style.borderColor = "#e5e7eb"}
+              />
+            </div>
+          ))}
 
-          <div className="form-group">
-            <label htmlFor="email">{t.email}</label>
-            <input
-              id="email"
-              type="email"
-              placeholder={t.emailPlaceholder}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="senha">{t.password}</label>
-            <input
-              id="senha"
-              type="password"
-              placeholder={t.passwordPlaceholder}
-              value={senha}
-              onChange={(e) => setSenha(e.target.value)}
-              required
-              minLength={8}
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="confirmar">{t.confirmPassword}</label>
-            <input
-              id="confirmar"
-              type="password"
-              placeholder={t.confirmPasswordPlaceholder}
-              value={confirmarSenha}
-              onChange={(e) => setConfirmarSenha(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="benefits">
-            <h3>{t.benefitsIncluded}</h3>
-            <ul>
-              <li>{t.benefit1}</li>
-              <li>{t.benefit2}</li>
-              <li>{t.benefit3}</li>
-              <li>{t.benefit4}</li>
-              <li>{t.benefit5}</li>
+          <div className="benefits" style={{ background: "#faf5ff", padding: "1.5rem", borderRadius: "16px", margin: "1.5rem 0" }}>
+            <h3 style={{ color: "#7c3aed", marginBottom: "1rem" }}>{t.benefitsIncluded}</h3>
+            <ul style={{ listStyle: "none", padding: 0, color: "#4c1d95" }}>
+              {[t.benefit1, t.benefit2, t.benefit3, t.benefit4, t.benefit5].map((b, i) => (
+                <li key={i} style={{ marginBottom: "0.75rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                  <span style={{ color: "#a78bfa", fontSize: "1.5rem" }}>✓</span> {b}
+                </li>
+              ))}
             </ul>
           </div>
 
-          <button type="submit" className="btn-primary">
+          <button
+            type="submit"
+            style={{
+              padding: "1rem",
+              borderRadius: "16px",
+              fontSize: "1.125rem",
+              fontWeight: "bold",
+              background: "linear-gradient(135deg, #a78bfa, #c084fc)",
+              color: "white",
+              border: "none",
+              cursor: "pointer",
+              boxShadow: "0 10px 20px rgba(167, 139, 250, 0.3)",
+              transition: "transform 0.2s"
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = "translateY(-4px)"}
+            onMouseLeave={(e) => e.currentTarget.style.transform = "translateY(0)"}
+          >
             {t.subscribe}
           </button>
         </form>
 
-        <div className="auth-footer">
+        <div className="auth-footer" style={{ textAlign: "center", marginTop: "2rem", color: "#6b7280" }}>
           <p>
             {t.haveAccount}{" "}
-            <Link href="/login" className="link-highlight">
+            <Link href="/login" style={{ color: "#a78bfa", fontWeight: "600", textDecoration: "underline" }}>
               {t.login}
             </Link>
           </p>
