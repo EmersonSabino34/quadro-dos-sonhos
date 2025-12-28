@@ -9,7 +9,6 @@ type Imagem = {
   deGaleria?: boolean;
 };
 
-
 const imagensInternet: Imagem[] = [
   // Carros dos sonhos
   { src: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400", tema: "carro" },
