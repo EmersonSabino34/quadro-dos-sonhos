@@ -87,6 +87,7 @@ const imagensEspirituaisPorReligiao: Record<string, Imagem[]> = {
     { src: "https://images.unsplash.com/photo-1591604021695-0c52fcbcf350?w=400", tema: "espiritualidade" },
   ],
 };
+
 // Frases motivacionais/bíblicas/filosóficas como imagens
 const frasesImagensMotivacionais: Imagem[] = [
   { src: "data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='400' fill='%23d4af37'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='32' fill='white' font-weight='bold' font-family='Georgia'%3E%3Ctspan x='50%25' dy='-40'%3E%22A fé move%3C/tspan%3E%3Ctspan x='50%25' dy='40'%3Emontanhas%22%3C/tspan%3E%3Ctspan x='50%25' dy='50' font-size='20'%3EMateus 17:20%3C/tspan%3E%3C/text%3E%3C/svg%3E", tema: "frase" },
