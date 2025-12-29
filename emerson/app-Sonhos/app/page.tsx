@@ -265,6 +265,7 @@ export default function Home() {
           >
             🇪🇸 ES
           </button>
+          
         </div>
         <h1 style={{ color: "#2c2c2c", textShadow: "2px 2px 4px rgba(212, 175, 55, 0.3)" }}>{t.title}</h1>
         <p style={{ 
