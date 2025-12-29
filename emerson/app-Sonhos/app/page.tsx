@@ -95,6 +95,7 @@ const frasesImagensMotivacionais: Imagem[] = [
   { src: "data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='400' fill='%23d4af37'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='32' fill='white' font-weight='bold' font-family='Georgia'%3E%3Ctspan x='50%25' dy='-30'%3EA persistência%3C/tspan%3E%3Ctspan x='50%25' dy='40'%3Eé o caminho%3C/tspan%3E%3Ctspan x='50%25' dy='40'%3Edo êxito%3C/tspan%3E%3Ctspan x='50%25' dy='55' font-size='20' fill='%23f5f0e8'%3ECharles Chaplin%3C/tspan%3E%3C/text%3E%3C/svg%3E", tema: "frase" },
   { src: "data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='400' fill='%232c3e50'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='30' fill='white' font-weight='bold' font-family='Georgia'%3E%3Ctspan x='50%25' dy='-40'%3EConstrua seus%3C/tspan%3E%3Ctspan x='50%25' dy='38'%3Esonhos, ou alguém%3C/tspan%3E%3Ctspan x='50%25' dy='38'%3Ete contratará para%3C/tspan%3E%3Ctspan x='50%25' dy='38'%3Econstruir os deles%3C/tspan%3E%3Ctspan x='50%25' dy='55' font-size='18' fill='%23d4af37'%3ETony Gaskins%3C/tspan%3E%3C/text%3E%3C/svg%3E", tema: "frase" },
 ];
+
 export default function Home() {
   const [lang, setLang] = useState<Language>("pt");
   const [imagens, setImagens] = useState<Imagem[]>(imagensInternet);
