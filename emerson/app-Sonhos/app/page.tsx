@@ -55,8 +55,8 @@ const imagensInternet: Imagem[] = [
   { src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400", tema: "natureza" },
   { src: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400", tema: "liberdade" },
 ];
-
 const imagensEspirituaisPorReligiao: Record<string, Imagem[]> = {
+  
   Católica: [
     { src: "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=400", tema: "espiritualidade" },
     { src: "https://images.unsplash.com/photo-1465433045946-ba6506ce4ce3?w=400", tema: "espiritualidade" },
