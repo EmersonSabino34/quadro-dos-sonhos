@@ -7,7 +7,6 @@ export default function Login() {
   const [lang, setLang] = useState<"pt" | "en" | "es">("pt");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-
   const t = {
     pt: {
       welcome: "⭐ Bem-vindo de volta!",
