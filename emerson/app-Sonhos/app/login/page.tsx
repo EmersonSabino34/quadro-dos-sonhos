@@ -87,7 +87,6 @@ export default function Login() {
           </h1>
           <p style={{ color: "#6b7280", fontSize: "1.125rem" }}>{t.subtitle}</p>
         </div>
-
         <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
           {/* Campos de input */}
           {[
