@@ -97,6 +97,7 @@ const frasesImagensMotivacionais: Imagem[] = [
 ];
 
 export default function Home() {
+  
   const [lang, setLang] = useState<Language>("pt");
   const [imagens, setImagens] = useState<Imagem[]>(imagensInternet);
   const [destaque, setDestaque] = useState<Imagem>(imagensInternet[0]);
