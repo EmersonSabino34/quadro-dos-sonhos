@@ -171,8 +171,7 @@ export default function Cadastro() {
               />
             </div>
           ))}
-
-          
+ 
           <div className="benefits" style={{ background: "#faf5ff", padding: "1.5rem", borderRadius: "16px", margin: "1.5rem 0" }}>
             <h3 style={{ color: "#7c3aed", marginBottom: "1rem" }}>{t.benefitsIncluded}</h3>
             <ul style={{ listStyle: "none", padding: 0, color: "#4c1d95" }}>
