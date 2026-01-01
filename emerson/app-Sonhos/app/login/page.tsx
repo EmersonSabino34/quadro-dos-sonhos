@@ -113,7 +113,6 @@ export default function Login() {
               />
             </div>
           ))}
-
           <div style={{ textAlign: "right", marginBottom: "0.5rem" }}>
             <Link href="/recuperar-senha" style={{ color: "#a78bfa", fontSize: "0.925rem", textDecoration: "underline" }}>
               {t.forgotPassword}
