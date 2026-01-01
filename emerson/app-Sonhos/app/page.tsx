@@ -302,6 +302,7 @@ export default function Home() {
             <option>{t.male}</option>
             <option>{t.preferNotToSay}</option>
           </select>
+          
           <input placeholder={t.profession} style={{ color: "#2c2c2c", background: "white", border: "2px solid rgba(212, 175, 55, 0.3)", padding: "0.8rem", borderRadius: "8px", width: "100%", marginBottom: "1rem" }} />
           <select value={religiao} onChange={(e) => setReligiao(e.target.value)} style={{ color: "#2c2c2c", background: "white", border: "2px solid rgba(212, 175, 55, 0.3)", padding: "0.8rem", borderRadius: "8px", width: "100%", marginBottom: "1rem" }}>
             <option value="">{t.religion}</option>
