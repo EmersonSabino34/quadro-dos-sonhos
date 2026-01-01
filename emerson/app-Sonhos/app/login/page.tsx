@@ -81,7 +81,6 @@ export default function Login() {
             </button>
           ))}
         </div>
-
         <div className="auth-header" style={{ textAlign: "center", marginBottom: "2rem" }}>
           <h1 style={{ fontSize: "2.5rem", fontWeight: "bold", background: "linear-gradient(135deg, #a78bfa, #93c5fd)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
             {t.welcome}
