@@ -45,7 +45,6 @@ export default function Login() {
       signUpNow: "Regístrate ahora",
     }
   }[lang];
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Login:", { email, senha });
