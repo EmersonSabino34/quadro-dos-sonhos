@@ -142,7 +142,6 @@ export default function Home() {
     const files = e.target.files;
     if (!files) return;
 
-    
     const novasImagens: Imagem[] = [];
     Array.from(files).forEach((file) => {
       const reader = new FileReader();
