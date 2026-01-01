@@ -118,7 +118,6 @@ export default function Login() {
               {t.forgotPassword}
             </Link>
           </div>
-
           <button
             type="submit"
             style={{
