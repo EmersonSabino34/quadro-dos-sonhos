@@ -8,8 +8,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const t = {
-    pt: {
-      
+    pt: {  
       welcome: "⭐ Bem-vindo de volta!",
       subtitle: "Entre na sua conta para acessar seu Dream Map",
       email: "E-mail",
