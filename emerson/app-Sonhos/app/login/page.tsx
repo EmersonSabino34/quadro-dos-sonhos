@@ -50,6 +50,7 @@ export default function Login() {
     console.log("Login:", { email, senha });
   };
   return (
+    
     <div className="auth-container" style={{ background: "linear-gradient(135deg, #f3e8ff 0%, #e0e7ff 100%)", minHeight: "100vh" }}>
       <div className="auth-card" style={{
         background: "white",
