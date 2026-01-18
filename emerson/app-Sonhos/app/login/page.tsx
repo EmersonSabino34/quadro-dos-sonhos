@@ -19,8 +19,7 @@ export default function Login() {
       enter: "Entrar",
       noAccount: "Não tem uma conta?",
       signUpNow: "Cadastre-se agora",
-    },
-    
+    },  
     en: {
       welcome: "⭐ Welcome back!",
       subtitle: "Sign in to your account to access your Dream Map",
