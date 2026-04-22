@@ -1,6 +1,5 @@
 Próximos Passos
 
-
 Implementar o dashboard com grid de imagens arrastáveis.
 Integração com armazenamento (ex: Firebase ou Supabase) para salvar boards.
 Adicionar frases diárias via API.
