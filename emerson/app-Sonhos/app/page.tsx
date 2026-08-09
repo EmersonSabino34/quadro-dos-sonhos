@@ -15,6 +15,7 @@ const imagensInternet: Imagem[] = [
   { src: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400", tema: "carro" },
   { src: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400", tema: "carro" },
   
+
   // Casas dos sonhos
   { src: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=400", tema: "casa" },
   { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400", tema: "casa" },
