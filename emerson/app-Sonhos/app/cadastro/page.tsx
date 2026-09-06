@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+
 import Link from "next/link";
 import "../auth.css"; // Mantenha seu CSS externo se tiver, ou use inline como abaixo
 export default function Cadastro() {
