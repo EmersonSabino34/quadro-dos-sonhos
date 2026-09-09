@@ -1,0 +1,10 @@
+{
+  "name": "projeto-emerson-workspace",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix projeto-emerson run dev",
+    "build": "npm --prefix projeto-emerson run build",
+    "start": "npm --prefix projeto-emerson run start",
+    "lint": "npm --prefix projeto-emerson run lint"
+  }
+}
