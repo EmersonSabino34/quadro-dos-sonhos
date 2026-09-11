@@ -1,82 +1,70 @@
 import Link from "next/link";
+import Ambience from "@/components/Ambience";
+import Collage from "@/components/Collage";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
+import { IconArrowLeft, IconPlus } from "@/components/icons";
+import { layoutById, murais, muralPhotos } from "@/lib/murais";
 
-const styles = [
-  {
-    title: "Inspirador",
-    note: "Frases em destaque e energia para realizar.",
-    tone: "style-inspiring",
-  },
-  {
-    title: "Criativo",
-    note: "Colagem, adesivos e fotos sobrepostas.",
-    tone: "style-creative",
-  },
-  {
-    title: "Minimalista",
-    note: "Espaço, equilíbrio e foco no essencial.",
-    tone: "style-minimal",
-  },
-];
+export const metadata = { title: "Mural dos Sonhos" };
 
-export default function AiPage() {
+export default function MuralPage() {
   return (
-    <main className="page">
+    /* Aurora: o mural é a tela mais visual do app, e a aurora é a atmosfera
+       que a identidade reserva para a criação. */
+    <main className="page" data-ambience="aurora">
+      <Ambience />
+
       <div className="stagger">
         <PageHeader
-          eyebrow="IA Designer"
-          title="Crie seu mural"
+          eyebrow="Seu quadro dos sonhos"
+          title="Meus Murais"
           action={
-            <Link href="/mural" className="icon-button" aria-label="Voltar para o mural">
-              ×
+            <Link href="/inicio" className="icon-button" aria-label="Voltar para o início">
+              <IconArrowLeft />
             </Link>
           }
         />
 
-        <section className="ai-intro">
-          <span aria-hidden="true">✦</span>
-          <h2>
-            Seus sonhos,
-            <br />
-            <em>do seu jeito.</em>
-          </h2>
-          <p>
-            Escolha um estilo e deixe a inteligência artificial organizar suas imagens,
-            objetivos e frases.
-          </p>
-        </section>
+        <Link href="/mural/novo" className="btn btn-primary btn-block">
+          <IconPlus />
+          Novo mural
+        </Link>
       </div>
 
       <Reveal>
-        <section className="section">
-          <p className="eyebrow">Escolha uma direção</p>
-          <div className="style-grid">
-            {styles.map((style) => (
-              <button className={`style-card ${style.tone}`} key={style.title} type="button">
-                <div className="style-art" aria-hidden="true">
-                  <span>✦</span>
-                  <span>♡</span>
-                  <span>✧</span>
-                </div>
-                <strong>{style.title}</strong>
-                <p>{style.note}</p>
-                <span className="style-arrow" aria-hidden="true">
-                  →
-                </span>
-              </button>
-            ))}
-          </div>
-        </section>
-      </Reveal>
+        <div className="mural-list">
+          {murais.map((mural) => {
+            const layout = layoutById(mural.layoutId);
+            if (!layout) return null;
 
-      <Reveal delay={80}>
-        <button className="btn btn-primary btn-block" type="button">
-          Adicionar fotos
-          <span className="btn-arrow" aria-hidden="true">
-            +
-          </span>
-        </button>
+            return (
+              <article className="mural-card glass" key={mural.id}>
+                <Collage
+                  layout={layout}
+                  photos={muralPhotos(mural)}
+                  ratio="4 / 3"
+                  className="collage-in-card"
+                />
+                <div className="mural-card-body">
+                  <strong>{mural.title}</strong>
+                  <span>{mural.subtitle}</span>
+                  <div className="mural-card-actions">
+                    <Link href={`/mural/${mural.id}/editar`} className="btn btn-ghost">
+                      Editar
+                    </Link>
+                    <Link href={`/mural/${mural.id}/preview`} className="btn btn-primary">
+                      Ver papel de parede
+                      <span className="btn-arrow" aria-hidden="true">
+                        →
+                      </span>
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
       </Reveal>
     </main>
   );

@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
+import { VyraMark } from "@/components/VyraLogo";
 import { useSessao } from "@/lib/auth";
 
 /**
  * Cabeçalho das telas públicas.
  *
  * Se já existe sessão, os CTAs de entrar/criar conta dão lugar a um atalho
- * para o mural — quem já está logado não precisa ver o funil de novo.
+ * para dentro do app — quem já está logado não precisa ver o funil de novo.
  */
 export default function SiteHeader() {
   const { sessao, carregando } = useSessao();
@@ -16,10 +17,10 @@ export default function SiteHeader() {
   return (
     <header className="site-header">
       <Link href="/" className="site-brand">
-        <span className="site-brand-mark" aria-hidden="true">
-          ✦
+        <span className="site-brand-mark brand-mark" aria-hidden="true">
+          <VyraMark size={18} />
         </span>
-        <strong>Mural dos Sonhos</strong>
+        <strong>VYRA</strong>
       </Link>
 
       <div className="site-header-actions">
@@ -28,8 +29,8 @@ export default function SiteHeader() {
         {/* Durante a leitura do localStorage não mostramos CTA nenhum, para
             não piscar "Entrar" para quem já tem sessão. */}
         {carregando ? null : sessao ? (
-          <Link href="/mural" className="btn btn-primary btn-sm">
-            Ir para o mural
+          <Link href="/inicio" className="btn btn-primary btn-sm">
+            Entrar no VYRA
             <span className="btn-arrow" aria-hidden="true">
               →
             </span>

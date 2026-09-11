@@ -1,0 +1,13 @@
+# dependências e builds
+node_modules/
+.next/
+dist/
+build/
+
+# segredos
+.env
+.env.local
+.env*.local
+
+# arquivos grandes / temporários
+*.zip

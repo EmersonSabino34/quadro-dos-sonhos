@@ -4,7 +4,17 @@ import Reveal from "@/components/Reveal";
 import { BotaoSair, IdentidadeSessao } from "@/components/SessaoUI";
 import { categories, dreams, overallProgress } from "@/lib/data";
 
-const settings = ["Meu perfil", "Notificações", "Privacidade", "Preferências de estilo"];
+/** As linhas do perfil (tela 29). Só Configurações já tem tela; as outras
+    ficam como botões para não virarem links quebrados. */
+const settings = [
+  { label: "Minha conta", href: null },
+  { label: "Meu plano", href: "/planos" },
+  { label: "Meus murais", href: "/mural" },
+  { label: "Minhas conquistas", href: "/conquistas" },
+  { label: "Configurações", href: "/configuracoes" },
+  { label: "Ajuda e suporte", href: "/ajuda" },
+  { label: "Sobre o VYRA", href: "/sobre" },
+];
 
 export default function ProfilePage() {
   return (
@@ -14,7 +24,7 @@ export default function ProfilePage() {
           eyebrow="Seu espaço"
           title="Perfil"
           action={
-            <Link href="/mural" className="icon-button" aria-label="Voltar para o mural">
+            <Link href="/inicio" className="icon-button" aria-label="Voltar para o início">
               ×
             </Link>
           }
@@ -41,12 +51,19 @@ export default function ProfilePage() {
 
       <Reveal>
         <div className="settings-list">
-          {settings.map((item) => (
-            <Link href="#" key={item}>
-              <span>{item}</span>
-              <b aria-hidden="true">→</b>
-            </Link>
-          ))}
+          {settings.map((item) =>
+            item.href ? (
+              <Link href={item.href} key={item.label}>
+                <span>{item.label}</span>
+                <b aria-hidden="true">→</b>
+              </Link>
+            ) : (
+              <button type="button" key={item.label}>
+                <span>{item.label}</span>
+                <b aria-hidden="true">→</b>
+              </button>
+            ),
+          )}
         </div>
       </Reveal>
 

@@ -12,6 +12,30 @@
   to   { transform: translate3d(8vw, -7vh, 0) scale(1); }
 }
 
+/* A foto do cenário entra em fade: na troca de dia para noite a paisagem
+   muda de imagem, e o corte seco denunciaria o truque. */
+@keyframes scene-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* O véu da aurora: atravessa o topo da tela devagar, sem nunca sair dele. */
+@keyframes aurora-veil {
+  from { transform: translate3d(-6vw, -2vh, 0) scaleY(.9); opacity: .75; }
+  to   { transform: translate3d(6vw, 3vh, 0) scaleY(1.15); opacity: 1; }
+}
+
+/* As estrelas não piscam uma a uma: o campo inteiro respira. */
+@keyframes star-breathe {
+  from { opacity: calc(var(--star-opacity) * .55); }
+  to   { opacity: var(--star-opacity); }
+}
+
+/* O anel de progresso preenche do zero até o valor final. */
+@keyframes ring-fill {
+  from { --ring-value: 0; }
+}
+
 @keyframes rise-in {
   from { opacity: 0; transform: translate3d(0, 18px, 0); filter: blur(6px); }
   to   { opacity: 1; transform: none; filter: blur(0); }

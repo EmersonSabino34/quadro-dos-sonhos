@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jogo da verdade</title>
+</head>
+<body>
+    <form>
+        <h1>Digite uma verdade</h1>
+        <select>
+            <option value="HTML5">HTML5</option>
+            <option value="CSS3">CSS3</option>
+        </select>
+        <h1>
+            <strong>Resposta:</strong>
+            <span></span>
+        </h1>
+        <button>Testa</button>
+    </form>
+
+    <div class="color">
+        <div class="color1 item"></div>
+        <div class="color2 item"></div>
+        <div class="color3 item"></div>
+    </div>
+
+    <style>
+        .color{
+            gap: 10px;
+            display: flex;
+
+            top: 10px;
+            right: 20px;
+            position: absolute;
+        }
+        .color1{
+            background-color: green;
+        }
+        .color2{
+            background-color: blue;
+        }
+        .color3{
+            background-color: yellow;
+        }
+        
+        .item{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid white;
+
+            transition: .3s;
+        }
+        .item:hover{
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+        body{
+            background-color: black;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        form{
+            padding: 20px;
+            width: 400px;
+            color: #fff;
+            background-color: #1d1d1d;
+
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        select, button{
+            
+            padding: 10px;
+            border-radius: 7px;
+            font-size: 1.6rem;
+            width: 100%;
+        }
+    </style>
+
+    <script>
+        var selecionar = document.querySelector("#select")
+        var resposta = document.querySelector("span")
+        var botao = document.querySelector("button")
+
+
+        document.querySelector(".color1").onclick = function(event){
+            event.preventDefault()
+
+            document.querySelector("body").style.backgroundColor = "green"    
+            document.querySelector("form").style.backgroundColor = "greenyellow"    
+            document.querySelector("form").style.border = "5px dotted white"    
+        }
+
+        document.querySelector(".color2").onclick = function(event){
+            event.preventDefault()
+            document.querySelector("body").style.backgroundColor = "blue"
+        }
+        document.querySelector(".color3").onclick = function(event){
+            event.preventDefault()
+
+            document.querySelector("body").style.backgroundColor = "yellow"    
+        }
+
+
+
+        botao.onclick = function(event){
+            event.preventDefault()
+
+        }
+
+
+
+    </script>
+</body>
+</html>

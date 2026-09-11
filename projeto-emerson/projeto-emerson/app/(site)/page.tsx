@@ -14,7 +14,7 @@ const pontosFortes = [
     titulo: "Mural montado por IA",
     texto:
       "Descreva o que você quer viver. A IA escolhe as imagens, organiza o layout e entrega seu mural pronto em segundos.",
-    href: "/ia",
+    href: "/mural",
     cta: "Ver o IA Designer",
   },
   {
@@ -23,7 +23,7 @@ const pontosFortes = [
     titulo: "11 áreas da vida",
     texto:
       "Viagem, carreira, família, casa, finanças, fé, saúde. Cada sonho no seu lugar, em vez de uma lista solta que você nunca revisita.",
-    href: "/categorias",
+    href: "/explorar",
     cta: "Ver as categorias",
   },
   {
@@ -32,7 +32,7 @@ const pontosFortes = [
     titulo: "Progresso que se vê",
     texto:
       "Cada sonho tem meta, prazo e percentual. Você abre o app e sabe exatamente o quanto já caminhou — sem precisar lembrar de nada.",
-    href: "/mural",
+    href: "/inicio",
     cta: "Ver o mural",
   },
   {
@@ -72,21 +72,21 @@ export default function LandingPage() {
         <div>
           <p className="lp-badge">
             <span aria-hidden="true">✦</span>
-            <span>IA Designer incluso</span>
+            <span>Visualize · Planeje · Viva</span>
           </p>
 
           <h1 className="lp-title">
-            Seus sonhos, finalmente <em>visíveis</em>.
+            O extraordinário começa <em>na sua mente</em>.
           </h1>
 
           <p className="lp-lede">
-            Monte um mural com suas metas, fotos e frases. Acompanhe o progresso de cada
-            sonho e deixe a inteligência artificial organizar tudo por você.
+            O VYRA não para na visualização: ele transforma o que você quer viver em
+            objetivos, plano de ação e um mural que você vê todos os dias.
           </p>
 
           <div className="lp-cta-row">
-            <Link href="/cadastro" className="btn btn-primary btn-lg">
-              Criar meu mural grátis
+            <Link href="/splash" className="btn btn-primary btn-lg">
+              Começar minha jornada
               <span className="btn-arrow" aria-hidden="true">
                 →
               </span>
@@ -179,8 +179,8 @@ export default function LandingPage() {
               Crie sua conta, escolha uma área da vida e veja seu mural tomar forma em
               menos de um minuto.
             </p>
-            <Link href="/cadastro" className="btn btn-primary btn-lg">
-              Criar meu mural grátis
+            <Link href="/splash" className="btn btn-primary btn-lg">
+              Começar minha jornada
               <span className="btn-arrow" aria-hidden="true">
                 →
               </span>

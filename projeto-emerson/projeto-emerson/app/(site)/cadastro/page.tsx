@@ -63,7 +63,7 @@ export default function CadastroPage() {
         senha: campos.senha,
       });
       salvarSessao(sessaoDoUsuario(usuario));
-      router.push("/mural");
+      router.push("/inicio");
     } catch (erro) {
       setErroApi(
         erro instanceof ApiError ? erro.message : "Algo deu errado. Tente de novo.",

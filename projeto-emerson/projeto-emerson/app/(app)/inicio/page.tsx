@@ -1,14 +1,17 @@
 import Link from "next/link";
-import { CategoryPill } from "@/components/CategoryCard";
-import DreamCard from "@/components/DreamCard";
-import PageHeader from "@/components/PageHeader";
-import ProgressBar from "@/components/ProgressBar";
+import Ambience from "@/components/Ambience";
+import AreaGrid from "@/components/AreaGrid";
+import PeriodTabs from "@/components/PeriodTabs";
+import ProgressRing from "@/components/ProgressRing";
 import Reveal from "@/components/Reveal";
 import SectionTitle from "@/components/SectionTitle";
 import { AvatarSessao, SaudacaoSessao } from "@/components/SessaoUI";
-import { categories, dreams, overallProgress } from "@/lib/data";
+import { IconBell } from "@/components/icons";
+import { goalProgress, goals, quoteOfTheDay } from "@/lib/data";
 
-/** "DOMINGO, 27 DE ABRIL" — antes fixo no JSX, agora sempre o dia de hoje. */
+export const metadata = { title: "Início" };
+
+/** "QUARTA-FEIRA, 10 DE SETEMBRO" — sempre o dia de hoje. */
 function todayLabel() {
   return new Intl.DateTimeFormat("pt-BR", {
     weekday: "long",
@@ -20,138 +23,122 @@ function todayLabel() {
 }
 
 export default function HomePage() {
-  return (
-    <main className="page page-split">
-      <div>
-        {/* .stagger faz o cabeçalho e o hero entrarem em cascata no load */}
-        <div className="stagger">
-          <PageHeader
-            eyebrow={todayLabel()}
-            title={<SaudacaoSessao />}
-            action={<AvatarSessao />}
-          />
+  const quote = quoteOfTheDay();
 
-          <section className="hero">
-            <div className="hero-glow" aria-hidden="true" />
-            <div className="hero-copy">
-              <p className="hero-kicker">Seu mural, sua visão</p>
-              <h2>
-                Visualize.
-                <br />
-                <em>Acredite.</em>
-                <br />
-                Realize.
-              </h2>
-              <p className="hero-lede">
-                Transforme seus sonhos em planos possíveis, um passo de cada vez.
-              </p>
-              <Link href="/ia" className="btn btn-primary">
-                ✦ Criar mural com IA
-                <span className="btn-arrow" aria-hidden="true">
-                  →
-                </span>
-              </Link>
+  return (
+    /* A Home abre no nascer do sol: é a tela que a pessoa vê todo dia, e o
+       amanhecer é o que a identidade do VYRA promete de manhã. */
+    <main className="page page-split" data-ambience="sunrise">
+      <Ambience />
+
+      <div>
+        <div className="stagger">
+          <header className="greet">
+            <AvatarSessao />
+            <div className="greet-copy">
+              <p className="eyebrow">{todayLabel()}</p>
+              <strong>
+                <SaudacaoSessao />
+              </strong>
+              <span>Que bom te ver aqui ✨</span>
             </div>
-            <div className="hero-orbit" aria-hidden="true">
-              <span>✦</span>
-              <span>♡</span>
-              <span>✧</span>
-            </div>
+            <button type="button" className="icon-button" aria-label="Notificações">
+              <IconBell />
+            </button>
+          </header>
+
+          <div className="section">
+            <PeriodTabs />
+          </div>
+
+          {/* Sem foto própria: a paisagem desta tela é o cenário de fundo,
+              e um cartão com imagem aqui seria foto sobre foto. */}
+          <section className="quote-panel">
+            <blockquote>&ldquo;{quote.text}&rdquo;</blockquote>
+            <cite>— {quote.author}</cite>
           </section>
         </div>
 
         <Reveal>
           <section className="section">
             <SectionTitle
-              eyebrow="Seu progresso"
-              title="Sonhos em movimento"
-              action={<strong>{overallProgress}%</strong>}
+              eyebrow="Seu universo"
+              title="Áreas da sua vida"
+              action={
+                <Link href="/explorar" className="text-link">
+                  Explorar <span aria-hidden="true">→</span>
+                </Link>
+              }
             />
-            <ProgressBar value={overallProgress} delay={320} />
-            <p className="muted-copy">Você está mais perto do que imagina.</p>
+            <AreaGrid />
           </section>
         </Reveal>
 
         <Reveal delay={80}>
           <section className="section">
             <SectionTitle
-              eyebrow="Coleção pessoal"
-              title="Meus sonhos"
+              eyebrow="Em movimento"
+              title="Meus objetivos"
               action={
-                <Link href="/categorias" className="text-link">
+                <Link href="/objetivos" className="text-link">
                   Ver todos <span aria-hidden="true">→</span>
                 </Link>
               }
             />
-            <div className="dream-grid">
-              {dreams.map((dream, index) => (
-                <DreamCard
-                  key={dream.id}
-                  dream={dream}
-                  featured={index === 0}
-                  delay={index * 110}
-                />
-              ))}
-            </div>
-          </section>
-        </Reveal>
-
-        <Reveal delay={80}>
-          <section className="section">
-            <SectionTitle
-              eyebrow="Explore"
-              title="Por categoria"
-              action={
-                <Link href="/categorias" className="text-link">
-                  Ver todas <span aria-hidden="true">→</span>
+            <div className="goal-list">
+              {goals.slice(0, 3).map((goal) => (
+                <Link href={`/objetivos/${goal.id}`} key={goal.id} className="goal-row">
+                  <span
+                    className="goal-thumb"
+                    style={{ backgroundImage: `url(${goal.image})` }}
+                    aria-hidden="true"
+                  />
+                  <span className="goal-body">
+                    <strong>{goal.title}</strong>
+                    <span className="muted-copy" style={{ marginTop: 2 }}>
+                      {goal.category} · {goal.deadline}
+                    </span>
+                  </span>
+                  <span className="goal-percent">{goal.progress}%</span>
                 </Link>
-              }
-            />
-            <div className="category-row">
-              {categories.slice(0, 8).map((category) => (
-                <CategoryPill key={category.slug} category={category} />
               ))}
             </div>
           </section>
         </Reveal>
       </div>
 
-      {/* Vira coluna lateral fixa a partir de 1320px; abaixo disso, segue
-          o fluxo normal no fim da página. */}
+      {/* Vira coluna lateral fixa a partir de 1320px; abaixo disso, segue o
+          fluxo normal no fim da página. */}
       <aside className="page-aside">
         <Reveal delay={120}>
-          <section className="quote-banner">
-            <div>
-              <p className="eyebrow">Frases &amp; inspiração</p>
-              <h2>
-                Uma frase pode mudar
-                <br />
-                o seu dia.
-              </h2>
-              <Link href="/frases" className="text-link">
-                Criar uma arte <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-            <div className="quote-mark" aria-hidden="true">
-              ❞
-            </div>
+          <section className="glass glass-pad">
+            <p className="eyebrow">Meu progresso</p>
+            <ProgressRing
+              value={goalProgress}
+              label={`Progresso médio dos objetivos: ${goalProgress}%`}
+            />
+            <p className="muted-copy" style={{ textAlign: "center" }}>
+              Você está mais perto do seu sonho.
+            </p>
           </section>
         </Reveal>
 
         <Reveal delay={160}>
-          <div className="stat-card">
+          <div className="glass glass-pad">
             <p className="eyebrow">Resumo</p>
-            <div className="stat-row">
-              <span>Sonhos ativos</span>
-              <strong>{dreams.length}</strong>
-            </div>
-            <div className="stat-row">
-              <span>Categorias</span>
-              <strong>{categories.length}</strong>
-            </div>
-            <div className="stat-row">
-              <span>Progresso médio</span>
-              <strong>{overallProgress}%</strong>
+            <div className="fact-list" style={{ marginTop: "var(--sp-3)" }}>
+              <div className="fact-row">
+                <span>Objetivos ativos</span>
+                <strong>{goals.length}</strong>
+              </div>
+              <div className="fact-row">
+                <span>Progresso médio</span>
+                <strong>{goalProgress}%</strong>
+              </div>
+              <div className="fact-row">
+                <span>Meta mais próxima</span>
+                <strong>{goals[1].deadline}</strong>
+              </div>
             </div>
           </div>
         </Reveal>

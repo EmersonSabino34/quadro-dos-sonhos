@@ -1,0 +1,13 @@
+/**
+ * Backup of prisma.config.ts (disabled for CLI compatibility).
+ * Original TypeScript config saved as a backup.
+ */
+
+export default {
+  datasources: {
+    db: {
+      // Provide the connection URL via env var at runtime
+      url: process.env.DATABASE_URL,
+    },
+  },
+};

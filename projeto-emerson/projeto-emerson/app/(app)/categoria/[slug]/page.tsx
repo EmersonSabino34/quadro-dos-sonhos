@@ -24,7 +24,7 @@ export default async function CategoryPage({
           }
           action={
             <Link
-              href="/categorias"
+              href="/explorar"
               className="icon-button"
               aria-label="Voltar para categorias"
             >

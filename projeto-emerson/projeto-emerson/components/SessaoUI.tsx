@@ -18,16 +18,17 @@ function primeiroNome(nome: string) {
   return nome.trim().split(/\s+/)[0] ?? nome;
 }
 
-/** "Olá, Ana ✦" no cabeçalho do mural. */
+/**
+ * "Olá, Ana!" no cabeçalho da Home.
+ *
+ * Sem o ✦ que vinha junto antes: no cabeçalho novo ele caía numa linha
+ * sozinha embaixo do nome. O brilho agora vive na linha de apoio, que é
+ * texto solto e pode quebrar sem estragar o título.
+ */
 export function SaudacaoSessao() {
   const { sessao, carregando } = useSessao();
 
-  return (
-    <>
-      Olá, {carregando ? "…" : primeiroNome(sessao?.nome ?? VISITANTE.nome)}{" "}
-      <span aria-hidden="true">✦</span>
-    </>
-  );
+  return <>Olá, {carregando ? "…" : primeiroNome(sessao?.nome ?? VISITANTE.nome)}!</>;
 }
 
 /** Avatar com as iniciais de quem está logado. */

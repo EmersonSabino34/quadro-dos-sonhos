@@ -48,9 +48,9 @@
 .btn-primary {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  background: linear-gradient(135deg, var(--brand-from), var(--brand-to));
   color: var(--text-on-accent);
-  box-shadow: var(--shadow-accent);
+  box-shadow: 0 10px 26px var(--brand-glow);
 }
 
 /* brilho que cruza o botão no hover */
@@ -80,7 +80,7 @@
 @media (hover: hover) {
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 16px 34px rgba(109, 74, 224, .34);
+    box-shadow: 0 16px 34px var(--brand-glow);
   }
   .btn-primary:hover::after { animation: shimmer 720ms var(--ease-out); }
   .btn:hover .btn-arrow { transform: translateX(4px); }
@@ -159,16 +159,18 @@
               opacity var(--t-mid) var(--ease-out);
 }
 
-/* sol no tema claro, lua no escuro — os dois giram durante a troca */
-.theme-toggle .icon-sun  { opacity: 1; transform: rotate(0deg) scale(1); }
-.theme-toggle .icon-moon { opacity: 0; transform: rotate(-90deg) scale(.4); }
+/* Três ícones empilhados, um visível por vez — sol (dia), lua (noite) e o
+   disco meio-a-meio (automático). Quem decide qual aparece é o estado do
+   <html>, não o React: sem data-theme significa automático. */
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon,
+.theme-toggle .icon-auto { opacity: 0; transform: rotate(-90deg) scale(.4); }
 
-:root[data-theme="dark"] .theme-toggle .icon-sun  { opacity: 0; transform: rotate(90deg) scale(.4); }
-:root[data-theme="dark"] .theme-toggle .icon-moon { opacity: 1; transform: rotate(0deg) scale(1); }
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .theme-toggle .icon-sun  { opacity: 0; transform: rotate(90deg) scale(.4); }
-  :root:not([data-theme="light"]) .theme-toggle .icon-moon { opacity: 1; transform: rotate(0deg) scale(1); }
+:root:not([data-theme]) .theme-toggle .icon-auto,
+:root[data-theme="light"] .theme-toggle .icon-sun,
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
 }
 
 /* --------------------------------------------------------------------------
@@ -181,7 +183,7 @@
   width: 44px;
   flex-shrink: 0;
   border-radius: var(--r-full);
-  background: linear-gradient(135deg, var(--rose), var(--v-500));
+  background: linear-gradient(135deg, var(--brand-from), var(--brand-to));
   color: #fff;
   font-size: var(--fs-xs);
   font-weight: 700;
@@ -1017,8 +1019,13 @@
   margin-top: var(--sp-7);
   border-top: 1px solid var(--border);
 }
-.settings-list a {
+/* As linhas do perfil são <a> quando a tela existe e <button> quando ainda
+   não existe, então as duas precisam do mesmo desenho. */
+.settings-list a,
+.settings-list button {
   display: flex;
+  width: 100%;
+  text-align: start;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--border);
@@ -1035,12 +1042,14 @@
   transition: transform var(--t-mid) var(--ease-spring);
 }
 @media (hover: hover) {
-  .settings-list a:hover {
+  .settings-list a:hover,
+  .settings-list button:hover {
     background: var(--surface-subtle);
     padding-inline: var(--sp-4) var(--sp-3);
     color: var(--accent-text);
   }
-  .settings-list a:hover b { transform: translateX(5px); }
+  .settings-list a:hover b,
+  .settings-list button:hover b { transform: translateX(5px); }
 }
 
 /* --------------------------------------------------------------------------

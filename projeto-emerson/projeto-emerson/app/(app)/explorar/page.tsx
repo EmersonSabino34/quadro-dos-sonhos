@@ -1,35 +1,43 @@
 import Link from "next/link";
-import { CategoryListItem } from "@/components/CategoryCard";
+import Ambience from "@/components/Ambience";
+import ExplorarBusca from "@/components/ExplorarBusca";
 import PageHeader from "@/components/PageHeader";
-import Reveal from "@/components/Reveal";
+import { IconArrowLeft } from "@/components/icons";
 import { categories } from "@/lib/data";
+import { areaContent } from "@/lib/areas";
 
-export default function CategoriesPage() {
+export const metadata = { title: "Explorar" };
+
+/** Os destinos da aba "Lugares" saem do conteúdo da própria área, para não
+    existir a mesma lista escrita em dois lugares. */
+function lugares() {
+  const block = areaContent.lugares.blocks.find((item) => item.kind === "places");
+  return block?.kind === "places" ? block.items : [];
+}
+
+export default function ExplorarPage() {
   return (
-    <main className="page">
+    /* Horizonte: a tela de descobrir olha para longe. */
+    <main className="page" data-ambience="horizon">
+      <Ambience />
+
       <div className="stagger">
         <PageHeader
-          eyebrow="Organize seus sonhos"
-          title="Categorias"
+          eyebrow="Descubra"
+          title="Explorar"
           action={
-            <Link href="/mural" className="icon-button" aria-label="Voltar para o mural">
-              ×
+            <Link href="/inicio" className="icon-button" aria-label="Voltar para o início">
+              <IconArrowLeft />
             </Link>
           }
         />
-        <p className="page-lede">
-          Tudo começa com uma intenção. Escolha uma área para adicionar fotos, metas e
-          inspirações.
-        </p>
-      </div>
 
-      <Reveal>
-        <div className="all-categories">
-          {categories.map((category) => (
-            <CategoryListItem key={category.slug} category={category} />
-          ))}
-        </div>
-      </Reveal>
+        <p className="page-lede">
+          Templates de mural, frases e destinos para alimentar os seus objetivos.
+        </p>
+
+        <ExplorarBusca categorias={categories} lugares={lugares()} />
+      </div>
     </main>
   );
 }

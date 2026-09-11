@@ -110,6 +110,34 @@
   transform: translateY(-2px);
 }
 
+/* --------------------------------------------------------------------------
+   O botão central de criar.
+   Nas telas de referência ele é um círculo dourado que flutua acima da barra,
+   então aqui ele sai do fluxo vertical dos outros itens: sobe, ganha o
+   gradiente da marca e some com o rótulo, que não caberia dentro do círculo.
+   -------------------------------------------------------------------------- */
+.nav-item-fab {
+  justify-content: center;
+  color: var(--text-on-accent);
+}
+.nav-item-fab .nav-label { display: none; }
+.nav-item-fab::after { content: none; }
+
+.nav-item-fab .nav-icon {
+  height: 52px;
+  width: 52px;
+  margin-top: -20px;
+  border-radius: var(--r-full);
+  border: 3px solid var(--bg);
+  background: linear-gradient(140deg, var(--brand-from), var(--brand-to));
+  color: #fff;
+  box-shadow: 0 10px 24px var(--brand-glow);
+}
+.nav-item-fab[aria-current="page"] .nav-icon {
+  transform: translateY(-2px) scale(1.04);
+}
+.nav-item-fab:active .nav-icon { transform: scale(.92); }
+
 /* pontinho que marca a rota ativa */
 .nav-item::after {
   content: "";
@@ -156,24 +184,14 @@
     margin: 0 0 var(--sp-8);
     padding: 0 var(--sp-2);
   }
-  .nav-brand-mark {
-    display: grid;
-    place-items: center;
-    height: 36px;
-    width: 36px;
-    flex-shrink: 0;
-    border-radius: var(--r-sm);
-    background: linear-gradient(135deg, var(--v-400), var(--v-600));
-    color: #fff;
-    font-size: 1rem;
-    box-shadow: var(--shadow-accent);
-  }
+  /* O símbolo em si é .brand-mark (app/styles/brand.css); aqui só o texto. */
   .nav-brand strong {
     display: block;
     font-family: var(--font-display);
     font-size: var(--fs-md);
     font-weight: 600;
-    letter-spacing: -.02em;
+    /* A palavra VYRA é o único texto do app com tracking positivo. */
+    letter-spacing: .2em;
     line-height: 1.15;
   }
   .nav-brand span {
@@ -224,6 +242,26 @@
   }
   .nav-item[aria-current="page"]::after { height: 22px; width: 3px; }
 
+  /* Na trilha lateral o "+" deixa de flutuar e vira a linha em destaque do
+     menu: o círculo dourado encolhe para o tamanho dos outros ícones e o
+     rótulo volta, porque aqui há largura para ele. */
+  .nav-item-fab {
+    justify-content: flex-start;
+    margin-top: var(--sp-2);
+    background: var(--accent-soft);
+    color: var(--accent-text);
+  }
+  .nav-item-fab .nav-label { display: block; }
+  .nav-item-fab .nav-icon {
+    height: 30px;
+    width: 30px;
+    margin-top: 0;
+    border: 0;
+    border-radius: var(--r-sm);
+    box-shadow: 0 4px 12px var(--brand-glow);
+  }
+  .nav-item-fab[aria-current="page"] .nav-icon { transform: none; }
+
   .nav-footer {
     display: flex;
     align-items: center;
@@ -231,6 +269,14 @@
     margin-top: auto;
     padding: var(--sp-4) var(--sp-2) 0;
     border-top: 1px solid var(--border);
+  }
+
+  .nav-footer-note {
+    color: var(--text-muted);
+    font-size: var(--fs-eyebrow);
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
   }
 
   /* O toggle passa a morar no pé da trilha, então sai do cabeçalho para

@@ -54,7 +54,7 @@ export default function LoginPage() {
     try {
       const usuario = await autenticar(campos.email, campos.senha);
       salvarSessao(sessaoDoUsuario(usuario));
-      router.push("/mural");
+      router.push("/inicio");
     } catch (erro) {
       setErroApi(erro instanceof ApiError ? erro.message : "Algo deu errado. Tente de novo.");
       setEnviando(false);

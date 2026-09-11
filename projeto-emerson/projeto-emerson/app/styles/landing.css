@@ -56,15 +56,18 @@
   width: 34px;
   flex-shrink: 0;
   border-radius: var(--r-sm);
-  background: linear-gradient(135deg, var(--v-400), var(--v-600));
+  background: linear-gradient(140deg, var(--brand-from), var(--brand-to));
   color: #fff;
   font-size: .95rem;
-  box-shadow: var(--shadow-accent);
+  box-shadow: 0 8px 22px var(--brand-glow);
   transition: transform var(--t-mid) var(--ease-spring);
 }
 @media (hover: hover) {
   .site-brand:hover .site-brand-mark { transform: rotate(-12deg) scale(1.08); }
 }
+
+/* A palavra VYRA respira, como em .vyra-logo. */
+.site-brand strong { letter-spacing: .18em; }
 
 .site-header-actions {
   display: flex;

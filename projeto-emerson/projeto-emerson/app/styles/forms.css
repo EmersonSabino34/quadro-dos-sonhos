@@ -202,3 +202,41 @@
   transition: transform var(--t-fast) var(--ease-spring);
 }
 .auth-demo button:active { transform: scale(.94); }
+
+/* --------------------------------------------------------------------------
+   Select e textarea
+   --------------------------------------------------------------------------
+   Herdam as mesmas regras do input em vez de reescrevê-las: o seletor abaixo
+   repete o bloco de .field input para os dois elementos, porque um `select`
+   não é atingido por `.field input`.
+   -------------------------------------------------------------------------- */
+.field select,
+.field textarea {
+  width: 100%;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-md);
+  background: var(--surface-sunken);
+  padding: var(--sp-4);
+  color: var(--text);
+  font-size: var(--fs-md);
+  transition: border-color var(--t-fast) var(--ease-out),
+              box-shadow var(--t-fast) var(--ease-out),
+              background var(--t-fast) var(--ease-out);
+}
+
+.field textarea {
+  min-height: 108px;
+  resize: vertical;
+  line-height: 1.55;
+}
+.field textarea::placeholder { color: var(--text-muted); }
+
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--surface);
+  box-shadow: var(--ring);
+}
+
+.field select[aria-invalid="true"] { border-color: #d4183d; }

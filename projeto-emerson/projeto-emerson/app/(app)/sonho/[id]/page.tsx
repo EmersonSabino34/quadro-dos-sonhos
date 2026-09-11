@@ -16,7 +16,7 @@ export default async function DreamPage({ params }: { params: Promise<{ id: stri
           eyebrow="Detalhes do sonho"
           title={dream.title}
           action={
-            <Link href="/mural" className="icon-button" aria-label="Voltar para o mural">
+            <Link href="/inicio" className="icon-button" aria-label="Voltar para o mural">
               ×
             </Link>
           }

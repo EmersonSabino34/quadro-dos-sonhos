@@ -1,7 +1,48 @@
-# Mural dos Sonhos
+# VYRA
 
-App Next.js 16 (App Router) para visualizar sonhos, organizá-los por categoria e
-gerar murais e frases com IA.
+App Next.js 16 (App Router) para visualizar, planejar e realizar: sonhos viram
+objetivos, objetivos viram plano de ação, e tudo isso vira um mural que você vê
+todos os dias.
+
+## Os dois tipos: dia e noite
+
+O VYRA tem duas atmosferas, não só duas cores:
+
+| | Dia | Noite |
+|---|---|---|
+| Cenário | nascer do sol, montanhas douradas | aurora boreal, céu estrelado |
+| Fundo | marfim quente (`--w-50`) | índigo profundo (`--i-950`) |
+| Destaque | âmbar (`--g-600`) | lilás (`--v-400`) |
+| Marca | ouro | ouro |
+
+O ouro é a assinatura e vale nos dois tipos — é ele que pinta todo botão
+principal e o símbolo. O violeta é ambiente da noite; de dia ele recua.
+
+A escolha vive em `[data-theme]` no `<html>` (`light`, `dark`, ou ausente para
+"automático", que segue o `prefers-color-scheme` do aparelho). Quem decide o
+visual é sempre o CSS, nunca o estado do React — ver `app/styles/tokens.css`,
+`components/ThemeToggle.tsx` e `components/ThemePicker.tsx`.
+
+## O cenário
+
+Toda tela tem uma **fotografia de paisagem ocupando o fundo inteiro**, com a
+interface flutuando em vidro por cima — não é um cartão com foto dentro de uma
+tela lisa, é a tela que é a paisagem. Quem monta isso é `<Ambience />`, que
+toda tela renderiza, em quatro camadas:
+
+1. **foto** — a paisagem, ancorada embaixo
+2. **véu** — sólido no topo, onde mora o texto, abrindo até a foto aparecer
+3. **manchas** — o brilho de cor que tinge a cena
+4. **estrelas** — só à noite
+
+Cada tela declara a sua ambientação (`data-ambience` no `<main>`: `sunrise`,
+`aurora`, `mountains`, `stars`, `horizon`), e **a foto muda com o tipo**: de dia
+entram nascer do sol e montanhas; de noite, aurora boreal e céu estrelado. Um
+filtro (`--scene-filter`) puxa qualquer foto para a paleta do tipo ativo, então
+o cenário nunca briga com a interface.
+
+O véu é o que permite ter foto na tela toda sem que nenhum texto dependa da
+sorte de cair sobre uma parte escura da imagem.
 
 ```bash
 npm run dev     # sobe a API mock e depois o app

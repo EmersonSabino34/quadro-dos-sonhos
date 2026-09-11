@@ -21,26 +21,31 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Mural dos Sonhos",
+  title: {
+    default: "VYRA · Mente · Plano · Vibra · Realiza",
+    template: "%s · VYRA",
+  },
   description:
-    "Visualize seus sonhos, transforme-os em objetivos e crie seu mural com IA.",
+    "Visualize, planeje e realize. O VYRA transforma sonhos em objetivos, " +
+    "planos de ação e murais que você vê todos os dias.",
+  applicationName: "VYRA",
 };
 
-/** Pinta a barra do navegador na mesma cor do fundo, em cada tema. */
+/** Pinta a barra do navegador na mesma cor do fundo, em cada tipo. */
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f7f5fb" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0910" },
+    { media: "(prefers-color-scheme: light)", color: "#fbf7f1" },
+    { media: "(prefers-color-scheme: dark)", color: "#080614" },
   ],
 };
 
 /**
- * Roda antes do primeiro paint para evitar o flash de tema branco em quem
- * escolheu escuro. Só estampa data-theme quando existe escolha salva — sem
- * ela, o CSS resolve pelo prefers-color-scheme e o app continua seguindo o
- * sistema do usuário mesmo se ele mudar depois.
+ * Roda antes do primeiro paint para evitar o flash de dia em quem escolheu
+ * noite. Só estampa data-theme quando existe escolha explícita — "auto" e a
+ * ausência de escolha deixam o CSS resolver pelo prefers-color-scheme, e o
+ * app continua acompanhando o aparelho mesmo se ele mudar depois.
  */
-const themeInit = `(function(){try{var t=localStorage.getItem("mds-theme");if(t==="dark"||t==="light"){document.documentElement.dataset.theme=t}}catch(e){}})();`;
+const themeInit = `(function(){try{var t=localStorage.getItem("vyra-theme");if(t==="dark"||t==="light"){document.documentElement.dataset.theme=t}}catch(e){}})();`;
 
 export default function RootLayout({
   children,

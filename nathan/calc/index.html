@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="main.js"></script>
+</head>
+
+<body class="fundotela">
+    <button id="btn-abrir">Abrir Calculadora</button>
+    <form class="sumir">
+        <input type="text" disabled id="visor" >
+        <div class="row">
+            <button id="btn7">7</button>
+            <button id="btn8">8</button>
+            <button id="btn9">9</button>
+            <button>-</button>
+        </div>
+        <div class="row">
+            <button id="btn4">4</button>
+            <button  id="btn5">5</button>
+            <button  id="btn6">6</button>
+            <button>+</button>
+        </div>
+        <div class="row">
+            <button  id="btn1">1</button>
+            <button id="btn2">2</button>
+            <button id="btn3">3</button>
+            <button>=</button>
+        </div>
+        <div class="row">
+            <button id="btn-0">0</button>
+            <button>.</button>
+            <button>,</button>
+            <button id="btnCE">CE</button>
+        </div>
+    </form>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            background-size: cover;
+            align-items: center;
+            justify-content: center;
+        }
+
+        form {
+            width: 190px;
+            padding: 10px;
+            margin-top: 50px;
+            border-radius: 10px;
+            background-size: cover;
+            background-image: url(./../cachorro1.png);
+        }
+
+        .sumir{
+            display: none;
+        }
+
+        .show{
+            display: flex;
+        }
+
+        input {
+            width: 170px;
+            padding: 10px;
+            color: #000;
+            font-size: 25px;
+            background-color: #fff;
+        }
+
+        button {
+            width: 35px;
+            height: 35px;
+            border-radius: 7px;
+
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        button:hover {
+            color: white;
+            background-color: #272727;
+        }
+        #btn-abrir{
+            color: white;
+            background-color: black;
+            width: 120px;
+
+            top: 10px;
+            position: fixed;
+        }
+        .row {
+            gap: 10px;
+            display: flex;
+            margin: 10px 0;
+        }
+    </style>
+</body>
+
+</html>
