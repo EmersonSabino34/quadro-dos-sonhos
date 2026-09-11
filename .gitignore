@@ -11,3 +11,6 @@ build/
 
 # arquivos grandes / temporários
 *.zip
+
+# projeto com repositório próprio
+projeto-financ/
